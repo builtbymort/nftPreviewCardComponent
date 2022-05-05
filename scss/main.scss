@@ -1,0 +1,197 @@
+$darkBlue:rgb(13,26,45);
+$ligherBlue:rgb(21,39,63);
+$nextToCyan:rgb(138,169,222);
+
+@font-face {
+    font-family: "outfit ";
+    src: url();
+}
+
+@mixin displayFlex($alignItems, $justifyContent){
+    display:flex;
+    align-items:$alignItems;
+    justify-content:$justifyContent;
+}
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+main
+{
+    position:fixed;
+    top:0;
+    left:0;
+    @include displayFlex(center,center);
+    width:100%;
+    height:100%;
+    background:$darkBlue;
+}
+.card
+{
+    @include displayFlex(center,center);
+    width:20%;
+    height:70%;
+    background:$ligherBlue;
+    border-radius:10px;
+    box-shadow: 0 0 20px #000;
+
+    & div
+    {
+        width:90%;
+        height:90%;
+
+        & .equilibrium
+        {
+            position:relative;
+            width:100%;
+            height:240px;
+            border-radius:10px;
+
+            & .filter
+            {
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                @include displayFlex(center,center);
+                width:unset;
+                height:unset;
+                visibility: hidden;
+                transition: all 1s ease-in;
+                background-color: rgba(0,255,255,0.5);
+                border-radius:10px;
+                margin:unset;
+
+                & i
+                {
+                    color:#fff;
+                    font-size:30px;
+                }
+            }
+
+            & img
+            {
+                width:100%;
+                height:100%;
+                border-radius:10px;
+            }
+        }
+        & .equilibrium:hover
+        {
+            cursor: pointer;
+
+            & .filter
+            {
+                visibility: visible;
+            }
+        }
+        & div, & footer
+        {
+            margin-top:5px;
+            margin-bottom:5px;
+        }
+
+        & .equiDiv
+        {
+            position: relative;
+            @include displayFlex(center,center);
+            width:100%;
+            height:30%;
+
+            & h3
+            {
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                color:#fff;
+            }
+
+            & h3:hover
+            {
+                color:cyan;
+                cursor:pointer;
+            }
+
+            & p
+            {
+                color:$nextToCyan;
+            }
+
+            & footer
+            {
+                position:absolute;
+                bottom:0;
+                left:0;
+                @include displayFlex(center,space-between);
+                width:100%;
+                height:10%;
+
+                & a
+                {
+                    color:#fff;
+                    text-decoration: none;
+                }
+
+                & .time
+                {
+                    color:$nextToCyan;
+                }
+                & .ethereum
+                {
+                    @include displayFlex(center,space-around);
+                    color:cyan;
+
+                    & img
+                    {
+                        height:15px;
+                        width:10px;
+                        margin-right:2px;
+                    }
+                }
+            }
+        }
+
+        & footer
+        {
+            @include displayFlex(center,flex-start);
+            width:100%;
+            height: 10%;
+            color:$nextToCyan;
+
+            & .profileImg
+            {
+                width:30px;
+                height:30px;
+                border-radius: 50%;
+                border:2px solid #fff;
+            }
+
+            & p
+            {
+                margin-left:10px;
+            }
+
+            & p > span
+            {
+                color:#fff;
+            }
+
+            & p > span:hover
+            {
+                color:Cyan;
+                cursor:pointer;
+            }
+        }
+    }
+}
+@media only screen and (max-width:376px){
+    .card
+    {
+        width:75%;
+        height:80%;
+    }
+}
